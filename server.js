@@ -1,8 +1,21 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const PORT = 3000;
+
+function getLocalIP() {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+        for (const iface of interfaces[name]) {
+            if (iface.family === 'IPv4' && !iface.internal) {
+                return iface.address;
+            }
+        }
+    }
+    return 'localhost';
+}
 
 const MIME_TYPES = {
     '.html': 'text/html',
@@ -42,6 +55,9 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
+    const ip = getLocalIP();
+    console.log(`Server running at:`);
+    console.log(`- Local:   http://localhost:${PORT}/`);
+    console.log(`- Network: http://${ip}:${PORT}/`);
     console.log(`Press Ctrl+C to stop.`);
 });
