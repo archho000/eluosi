@@ -1,0 +1,171 @@
+body {
+    background: #202028;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column; /* Changed to column to accommodate mobile controls */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed to min-height */
+    margin: 0;
+    touch-action: none; /* Prevent default touch actions like scrolling */
+}
+
+.game-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+canvas {
+    border: 2px solid #fff;
+    background-color: #000;
+    display: block;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #00f0ff;
+}
+
+.score-board {
+    background: #444;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.score-board p {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #aaa;
+}
+
+#score {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.controls {
+    background: #444;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.controls ul {
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+}
+
+.controls li {
+    margin-bottom: 5px;
+}
+
+button {
+    background: #00f0ff;
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #00c0cc;
+}
+
+button:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+    display: none; /* Hidden by default on desktop */
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 2em;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid #00f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.control-btn:active {
+    background: rgba(0, 240, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        width: 90%;
+    }
+
+    .game-info {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .game-info > * {
+        flex: 1;
+    }
+
+    .controls {
+        display: none; /* Hide keyboard instructions on mobile */
+    }
+
+    h1 {
+        width: 100%;
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+
+    .mobile-controls {
+        display: flex; /* Show on mobile */
+    }
+    
+    canvas {
+        /* Ensure canvas fits screen if needed, though 240px width is usually fine */
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>俄罗斯方块 (Tetris)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-area">
+            <canvas id="tetris" width="240" height="400"></canvas>
+        </div>
+        <div class="game-info">
+            <h1>Tetris</h1>
+            <div class="score-board">
+                <p>分数 (Score)</p>
+                <div id="score">0</div>
+            </div>
+            <div class="controls">
+                <p>控制说明:</p>
+                <ul>
+                    <li>← / → : 左右移动</li>
+                    <li>↓ : 加速下落</li>
+                    <li>Space : 旋转</li>
+                </ul>
+            </div>
+            <button id="start-btn">开始游戏</button>
+        </div>
+    </div>
+
+    <!-- 移动端控制按钮 -->
+    <div class="mobile-controls">
+        <div class="control-row">
+            <button id="btn-rotate" class="control-btn">↻</button>
+        </div>
+        <div class="control-row">
+            <button id="btn-left" class="control-btn">←</button>
+            <button id="btn-down" class="control-btn">↓</button>
+            <button id="btn-right" class="control-btn">→</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
